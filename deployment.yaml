@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custom-scaler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: custom-scaler
+  template:
+    metadata:
+      labels:
+        app: custom-scaler
+    spec:
+      containers:
+      - name: custom-scaler
+        image: custom-scaler:latest
+        imagePullPolicy: Always
